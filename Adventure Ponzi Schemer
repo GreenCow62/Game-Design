@@ -1,0 +1,679 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+int main() {
+	char input = 'a';
+	int room = 0;
+	string companyName;
+	string companyProduct;
+	//bool companies[6] = { true, false, true, true, true, true };
+	//string companyNames[6] = { "google", "apple", "amazon", "microsoft", "facebook", "tesla" };
+
+
+	cout << "Please choose your company's name" << endl;
+	cin >> companyName;
+	cout << "Ok your company's name will be " << companyName << endl;
+	cout << "What kind of product does your company \"sell\"? smartphones, computers, windows, cars" << endl;
+	cin >> companyProduct;
+	cout << "Ok your company will \"sell\" " << companyProduct << endl << endl;
+
+		unsigned long long money = 100;
+		int google = 0;
+		int apple = 0;
+		int amazon = 0;
+		int microsoft = 0;
+		int facebook = 0;
+		int tesla = 0;
+	while (input != 'q') {
+		switch (room) {
+		case 0:	cout << "You've just graduated from business school and you are" << endl;
+			cout << "struggling to come up with an idea for your own business." << endl;
+			cout << "You finally stumble upon the idea for starting a pyramid" << endl;
+			cout << "scheme. After weeks of trying to get people to be apart of" << endl;
+			cout << "your scheme you give up because you were losing money and time." << endl;
+			cout << "'well if all else fails what better to do than start " << endl;
+			cout << "a ponzi scheme?' you thought. And so began the story of your ponzi scheme" << endl << endl;
+			cout << "You only have $100 left, better get to working. Which company do you want to 'borrow' from first?" << endl;
+			cout << "(A) for Apple, (a) for Amazon, (g) for Google, (m) for Microsoft, (f) for Facebook, (t) for Tesla" << endl << endl;
+			cin >> input;
+			if (input == 'A')
+				room = 3;
+			else if (input == 'a')
+				room = 4;
+			else if (input == 'g')
+				room = 2;
+			else if (input == 'm')
+				room = 5;
+			else if (input == 'f')
+				room = 6;
+			else if (input == 't')
+				room = 7;
+			break;
+
+		case 1:
+			cout << "(A) for Apple, (a) for Amazon, (g) for Google, (m) for Microsoft, (f) for Facebook, (t) for Tesla" << endl;
+			cin >> input;
+			if (input == 'A')
+				room = 3;
+			else if (input == 'a')
+				room = 4;
+			else if (input == 'g')
+				room = 2;
+			else if (input == 'm')
+				room = 5;
+			else if (input == 'f')
+				room = 6;
+			else if (input == 't')
+				room = 7;
+			else if (money >= 100000000) {
+				room = 14;
+			}
+			break;
+
+
+		case 2: //Google Room
+			if (google == 2) {
+				cout << "Sundar Pichai didn't want see you he's off selling more of everyone's data." << endl;
+				room = 1;
+			}
+			if (google == 1) {
+				room = 8;
+			}
+			else {
+				cout << "Sundar Pichai is the first person you're \"selling\" your business to, make sure to not mess this one up." << endl;
+				cout << "How should you start your pitch?" << endl;
+				if (companyProduct.compare("windows") == 0) {
+					cout << "(a) We know you like the microsoft hololens so why don't you invest in our windows xp powered AR headset that can weirdly accurately simulate the experience of being a US army soldier" << endl;
+					cout << "(b) Microsoft would like to partner up with you guys so that we can sell even more people's data using Microsoft Edge" << endl;
+					cout << "(c) You know if you can invest $120 million into a juicer company you can invest in our startup company" << endl;
+					cout << "(d) STOP STEALING OUR DATA!!!!!!!!1!!!" << endl;
+					cin >> input;
+					if (input == 'b') {
+						cout << "Sundar Pichai: I like this idea, tell Bill Gates, it's a deal and that I'll invest $125,000 and you better come back with $250,000" << endl;
+						money += 125000;
+						cout << money << endl;
+						google = 1;
+						room = 1;
+					}
+					else if (input == 'd') {
+						cout << "NEVER!!!" << endl;
+						cout << "*Sundar Pichai pulls a knife out from under his desk and stabs you several times in the chest." << endl;
+						cout << "Sundar Pichai: You know one wouldn't normally consider stealing people's data to be fun but this does bring a smile to my face." << endl;
+						cout << "*You die happy knowing that you had fun trolling Sundar Pichai" << endl;
+						abort();
+					}
+					else {
+						cout << "I'm not interested please leave my office" << endl;
+						cout << "luckily Sundar Pichai is willing to listen to you more than once so go try again. However, be careful as other CEOs may not be as forgiving" << endl;
+						room = 1;
+					}
+				}
+				else {
+					cout << "(a) Dormammu I've come to bargain" << endl;
+					cout << "(b) Dormammu I've come to bargain" << endl;
+					cout << "(c) Dormammu I've come to bargain" << endl;
+					cout << "(d) Let's make some easy shmoney together." << endl;
+					cin >> input;
+					if (input == 'd') {
+						cout << "Alright what's your product?" << endl;
+						cout << "(a) World ending nuclear missiles" << endl;
+						cout << "(b) A game console better than the stadia" << endl;
+						cin >> input;
+						if (input == 'b') {
+							cout << "Alright I'll invest $125,000 for a return of $250,000" << endl;
+							money += 125000;
+							google = 1;
+							room = 1;
+						}
+						else {
+							cout << "Sundar Pichai: I'll take them!" << endl;
+							cout << "*Sundar Pichai launches the missiles and ends the world is one shot" << endl;
+							abort();
+						}
+					}
+					else {
+						cout << "Sundar Pichai: Oh so you think you're funny" << endl;
+						cout << "*You get thrown out of Google's building" << endl;
+						room = 1;
+					}
+				}
+			}
+			break;
+		case 3: // Apple Room
+			if (google == 0 || facebook == 0) {
+				room = 1;
+				cout << "Tim Cook didn't want to listen to your pitch yet. Try a different company" << endl << endl;
+			}
+
+			else if (apple == 1 && money >= 1000000) {
+				room = 9;
+			}
+			
+			else if (apple == 2) {
+				cout << "Tim Cook doesn't want to see you today." << endl;
+				room = 1;
+			}
+
+			else {
+				cout << "It's your lucky day, Tim Cook himself came to see your pitch about " << companyProduct << "." << endl;
+				cout << "How should you start your pitch?" << endl << endl;
+				if (companyProduct.compare("windows") == 0) {
+					cout << "(a) Imagine not having every steam game available to your OS" << endl;
+					cout << "(b) Steve Jobs would be rolling in his grave" << endl;
+					cout << "(c) Alright so hear me out, windows on Macs" << endl;
+					cout << "(d) MacOS radiates small PP energy" << endl;
+					cin >> input;
+					if (input == 'c') {
+						cout << "Tim Cook: I hear you, I don't like it but I hear you. I'm willing to invest $500,000 for a return of $1,000,000. (y or n)" << endl;
+						cin >> input;
+						if (input == 'y') {
+							apple = 1;
+							room = 1;
+							money += 500000;
+							cout << money << endl;
+						}
+						else {
+							room = 1;
+						}
+
+					}
+					else if (input == 'd') {
+						cout << "I hate you, I'm suing you for a billion trillion dollars." << endl;
+						abort();
+					}
+					else {
+						cout << "Sorry this just isn't what we're looking for." << endl;
+						room = 1;
+					}
+				}
+				else {
+					cout << "(a) I make tech but I need your help, please invest in my company and I will pay you back" << endl;
+					cout << "(b) If you give me $500,000 now, I can give you $1,000,000 in a week or so" << endl;
+					cout << "(c) GIVE ME $500,000 NOW!!!!1!" << endl;
+					cout << "(d) I can make Apple the new Disney" << endl;
+					cin >> input;
+					if (input == 'd') {
+						cout << "Tim Cook: I'm intrigued I'll invest $500,000 for a return of $1,000,000 is this something we can agree on? (y or n)" << endl;
+						cin >> input;
+						if (input == 'y') {
+							cout << "Tim Cook: Fantastic!" << endl;
+							apple = 1;
+							room = 1;
+							money += 500000;
+							cout << "money: " << money << endl << endl;
+						}
+						else if (input == 'n') {
+							cout << "Tim Cook: Oh well, you're missing out on a huge opportunity" << endl << endl;
+							room = 1;
+						}
+					}
+					else {
+						cout << "How dare you make a mockery of Apple! I will order a cease and desist on you!" << endl << endl;
+						room = 1;
+					}
+				}
+			}
+			break;
+
+		case 4: //Amazon Room
+			if (google == 0) {
+				cout << "Jeff Bezos didn't want to listen to your pitch" << endl;
+				room = 1;
+			}
+			else if (amazon == 2) {
+				cout << "Jeff didn't want to see you today he is much to busy right now." << endl;
+				room = 1;
+			}
+			else if (amazon == 1 && money >= 500000) {
+				room = 10;
+			}
+			else {
+				cout << "Jeff Bezos was curious about your pitch" << endl;
+				cout << "How should you start your pitch?" << endl << endl;
+				if (companyProduct.compare("windows") == 0) {
+					cout << "(a) Imagine if you will, if windows ran on your drones" << endl;
+					cout << "(b) I think that amazon as a website would be better if it sold window installments" << endl;
+					cout << "(c) You guys have enough money to invest to me so just give me the money." << endl;
+					cout << "(d) Bill Gates has invented teleportation devices that could get packages anywhere instantly" << endl;
+					cin >> input;
+					if (input == 'a') {
+						cout << "Jeff Bezos: What purpose would that serve?" << endl;
+						cout << "(a) It'll be really really cool" << endl;
+						cout << "(b) It'll be really really funny" << endl;
+						cin >> input;
+						if (input == 'b') {
+							cout << "Jeff Bezos: I'll allow it. You can have $250,000 and return with $500,000" << endl;
+							money += 250000;
+							amazon = 1;
+							room = 1;
+						}
+						else {
+							cout << "You're dumb and I hate you" << endl;
+							room = 1;
+						}
+					}
+					else {
+						cout << "Ehhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh" << endl;
+						cout << "*Disappointed Jeff Bezos noises intesify" << endl;
+						room = 1;
+					}
+				}
+				else {
+					cout << "(a) I know Amazon likes investing in dumb things and boy do I have a dumb product today" << endl;
+					cout << "(b) I can make you even richer Jeff" << endl;
+					cout << "(c) We can make a swarm of drones to achieve world domination" << endl;
+					cout << "(d) I have bombs that we can swap with other peoples Amazon packages" << endl;
+					cin >> input;
+					if (input == 'b') {
+						cout << "Jeff Bezos: Alright I'm intrigued, I'll invest $250,000 for a return of $500,000" << endl;
+						money += 250000;
+						amazon = 1;
+						room = 1;
+					}
+				}
+			}
+			break;
+		case 5: //Microsoft Room
+			if (apple == 0 || facebook == 0) {
+				cout << "Bill Gates didn't want to listen to your pitch" << endl;
+				room = 1;
+			}
+			else if (money >= 1500000 && microsoft == 1) {
+				room = 11;
+			}
+			else if (microsoft == 2) {
+				cout << "Bill Gates is busy jumping over jumping over computer chairs." << endl;
+				room = 1;
+			}
+			else {
+				cout << "It's your lucky day, Bill Gates wants to listen to your pitch himself." << endl << endl;
+				if (companyProduct.compare("windows") == 0) {
+					cout << "So you said your product you're showing is windows? y or n" << endl;
+					cin >> input;
+					if (input == 'y') {
+						cout << "You gotta be smoking that strong" << endl;
+						room = 1;
+					}
+					else {
+						cout << "So wait what are you trying to sell?" << endl;
+						cout << "(a) Windows the OS" << endl;
+						cout << "(b) Glass windows" << endl;
+						cin >> input;
+						if (input == 'a') {
+							cout << "You gotta smoking that strong" << endl;
+							room = 1;
+						}
+						else {
+							cout << "Oh ok, so what's so great about your windows?" << endl;
+							cout << "(a) They have technology that projects different screens on them" << endl;
+							cout << "(b) They're bulletproof but paper thin" << endl;
+							cout << "(c) They are insulated to keep heat in" << endl;
+							cout << "(d) They're regular windows" << endl;
+							cin >> input;
+							if (input == 'd') {
+								money += 500000;
+								microsoft = 1;
+								cout << money << endl;
+								room = 1;
+							}
+						}
+					}
+				}
+				
+				else {
+					cout << "How should you start your pitch?" << endl;
+					cout << "(a) So you know how windows phones are bad?" << endl;
+					cout << "(b) Ya'll like tech?" << endl;
+					cout << "(c) Mom said it's my turn on the money" << endl;
+					cout << "(d) I'm making a pyramid scheme with you at the bottom" << endl;
+					cin >> input;
+					if (input == 'b') {
+						cout << "Bill Gates: I like tech, what kind of tech are you making?" << endl;
+						cout << "(a) Better mobile phones" << endl;
+						cout << "(b) Better hardware" << endl;
+						cin >> input;
+						if (input == 'a') {
+							cout << "Alright I'll give you $500,000 for a return of $1,500,000. (y or n)" << endl;
+							cin >> input;
+							if (input == 'y') {
+								money += 750000;
+								microsoft = 1;
+								cout << money << endl;
+								room = 1;
+							}
+							else {
+								cout << "Bill Gates: Do you realize how many computer hardware companies we have under our thumb?" << endl;
+								cout << "Bill Gates: Too many." << endl;
+								room = 1;
+							}
+						}
+						else {
+							cout << "Bill Gates: I'm uninterested, please leave." << endl;
+							room = 1;
+						}
+					}
+					else {
+						cout << "How dare you waste my time!" << endl;
+						room = 1;
+					}
+				}
+			}
+			break;
+		case 6://Facebook Room
+			if (google == 1 && amazon == 1) {
+				cout << "Dang the Zuck wants to listen to your pitch" << endl;
+				cout << "How should you start your pitch?" << endl;
+				cout << endl;
+				if (companyProduct.compare("windows") == 0) {
+					cout << "(a) We have the technology to make an army of humanoid reptilians like you" << endl;
+					cout << "(b) We've made a better VR headset than the oculus rift" << endl;
+					cout << "(c) Imagine if you will, if Facebook was a Microsoft app like Skype" << endl;
+					cout << "(d) We have bombs that release people's private data, therefore we can weaponize data" << endl;
+					cin >> input;
+					cout << endl;
+					if (input == 'c') {
+						cout << "The Zuck: I like this plan" << endl;
+						money += 2500000;
+						cout << money << endl;
+						facebook = 1;
+						room = 1;
+					}
+					else {
+						cout << "The Zuck: I don't like this plan" << endl;
+						room = 1;
+					}
+				}
+				else {
+					cout << "(a) We have the technology to make an army of humanoid reptilians like you" << endl;
+					cout << "(b) We've made it possible for Facebook to increase views on videos artificially without anyone knowing" << endl;
+					cout << "(c) I've found a way for you weaponize people's data without going to supreme court" << endl;
+					cout << "(d) We are now able to harness the power of the shifting of tectonic plates to use alchemy" << endl;
+					cin >> input;
+					cout << endl;
+					if (input == 'd') {
+						cout << "The Zuck: Humans who would dare to play God must pay a steep price for their arrogance. That is the way of the universe, the natural order imposed by the very thing you claim to worship" << endl;
+						cout << "*You then realize what Mark Zuckerberg truly is. Mark Zuckerberg is a Homunculus" << endl;
+						cout << "*Mark Zuckerberg then stick his tongue into your brain and you conciousness slowly fades away" << endl;
+						abort();
+					}
+					else if (input == 'b') {
+						cout << "The Zuck: I like this plan." << endl;
+						money += 2500000;
+						cout << money << endl;
+						facebook = 1;
+						room = 1;
+					}
+					else {
+						cout << "The Zuck: I don't like this plan." << endl;
+						room = 1;
+					}
+				}
+			}
+			else if (facebook == 1) {
+				room = 12;
+			}
+			else {
+				cout << "Mark Zuckerberg doesn't want to listen to your pitch" << endl;
+				room = 1;
+			}
+			break;
+		case 7: //Tesla Room
+			if (facebook == 1 && apple == 1 && amazon == 1 && google == 1 && microsoft == 1) {
+				cout << endl;
+				cout << "Oh wow you get to pitch to Elon Musk himself" << endl;
+				cout << "How should you start your pitch?" << endl;
+				if (companyProduct.compare("windows") == 0) {
+					cout << "(a) So hear me out, we can run windows vista in your self driving cars" << endl;
+					cout << "(b) We can make SAO but minecraft." << endl;
+					cout << "(c) Bill Gates wants to partner up with you to create a toaster" << endl;
+					cout << "(d) We have the technology to make real life cat girls." << endl;
+					cin >> input;
+					if (input == 'd') {
+						cout << "*Elon Musk aggressively laughs" << endl;
+						cout << "*He then slaps a fat stack of cash down onto the table that looked to be about $5,000,000" << endl;
+						cout << "*You leave dazed and confused, wondering the heck happened." << endl;
+						money += 5000000;
+						tesla = 1;
+						cout << money << endl;
+						room = 1;
+					}
+					else {
+						cout << "*Elon Musk angrily laughs" << endl;
+						cout << "*He pulls out a baseball bat and smashes everything in sight." << endl;
+						cout << "*You leave before he starts hitting you." << endl;
+						room = 1;
+					}
+				}
+				else {
+					cout << "(a) We have the technology to make real life cat girls." << endl;
+					cout << "(b) We can make SAO but minecraft." << endl;
+					cout << "(c) Our start up makes porta potties with built in bidets" << endl;
+					cout << "(d) We have the research to be able to absorb god." << endl;
+					cin >> input;
+					if (input == 'b') {
+						cout << "Elon Musk: Finally I can live out my dream of being Akihiko Kayaba!" << endl;
+						cout << "*He gives you $5,000,000" << endl;
+						money += 5000000;
+						tesla = 1;
+						cout << money << endl;
+						room = 1;
+					}
+					else {
+						cout << "*Elon Musk angrily laughs" << endl;
+						cout << "*He pulls out a baseball bat and smashes everything in sight." << endl;
+						cout << "*You leave before he starts hitting you." << endl;
+						room = 1;
+					}
+				}
+			}
+			else if (tesla == 1) {
+				room = 13;
+			}
+			else if (tesla == 2) {
+				cout << endl;
+				cout << "Elon Musk is busy sending the cybertruck intto space" << endl;
+				room = 1;
+			}
+			else {
+				cout << "Elon Musk is busy hosting cybertruck races." << endl;
+				room = 1;
+			}
+			break;
+		case 8:// Google Return Room
+			cout << "Sundar Pichai: Give your shmoney (y or n)" << endl;
+			cin >> input;
+			if (input == 'y') {
+				cout << "Sundar Pichai: YES!!!!!!" << endl;
+				money -= 250000;
+				cout << money << endl;
+				cout << "(a) I need money" << endl;
+				cout << "(b) I'll be leaving now" << endl;
+				cin >> input;
+				if (input == 'a') {
+					cout << "Sundar Pichai: Very well you shall have more of my money" << endl;
+					money += 500000;
+					cout << money << endl;
+					google = 2;
+					room = 1;
+				}
+				else {
+					google = 2;
+					room = 1;
+				}
+			}
+			else {
+				cout << "Sundar Pichai: NO!!!!!!!!!" << endl;
+				room = 1;
+			}
+			break;
+
+		case 9: //Apple Return Room
+			cout << "Tim Cook: Here to give us our return? (y or n)" << endl;
+			cin >> input;
+			if (input == 'y') {
+				cout << "Tim Cook: Thank you very much." << endl;
+				money -= 1000000;
+				cout << "Tim Cook: Do you need anything else from me?" << endl << endl;
+				cout << "(a) I'm gonna need to borrow $2000000" << endl;
+				cout << "(b) No I'm all good." << endl;
+				cin >> input;
+				if (input == 'a') {
+					cout << "Tim Cook: OK I'll give you 2000000 if you return with 4000000" << endl;
+					money += 2000000;
+					apple = 2;
+					room = 1;
+				}
+				else {
+					room = 1;
+				}
+			}
+			break;
+			
+		case 10:
+			cout << "Jeff Bezos: Here to return what is rightfully mine? (y or n)" << endl;
+			cin >> input;
+			if (input == 'y') {
+				money -= 500000;
+				cout << money << endl;
+				cout << "Jeff Bezos: Is there anything else you need from me? (y or n)" << endl;
+				cin >> input;
+				if (input == 'y') {
+					cout << "Jeff Bezos: Fine if you want more money then have it! I expect you to give me twice as much back" << endl;
+					money += 1000000;
+					amazon = 2;
+					cout << money << endl;
+					room = 1;
+				}
+				else {
+					cout << "Well ok then." << endl;
+					room = 1;
+				}
+			}
+			else {
+				cout << "Jeff Bezos: Why even bother coming here in the first place?!!!!!!!!" << endl;
+				room = 1;
+			}
+			break;
+
+		case 11: //Microsoft Return Room
+			cout << "Bill Gates: Here to make your return? (y or n)" << endl;
+			cin >> input;
+			if (input == 'y') {
+				cout << "Bill Gates: Thank you very much." << endl;
+				money -= 1500000;
+				cout << money << endl;
+				cout << "Bill Gates: Do you need any more funding?(y or n)" << endl;
+				cin >> input;
+				if (input == 'y') {
+					cout << "Alright I'll give you $2,000,000 for a return of $4,000,000" << endl;
+					money += 2000000;
+					microsoft = 2;
+					cout << money << endl;
+					room = 1;
+				}
+			}
+			else {
+				cout << "Bill Gates: Oh ok" << endl;
+				room = 1;
+			}
+			break;
+
+		case 12: //Facebook Return Room
+			cout << "The Zuck: Here to make your return?(y or n)" << endl;
+			cin >> input;
+			if (input == 'y') {
+				cout << "The Zuck: Great!" << endl;
+				money -= 5000000;
+				cout << money << endl;
+				cout << endl;
+				cout << "The Zuck: Do I need to throw more money at you?(y or n)" << endl;
+				cin >> input;
+				if (input == 'y') {
+					money += 7500000;
+					cout << money << endl;
+					facebook = 2;
+					room = 1;
+				}
+				else {
+					cout << "THe Zuck: OK" << endl;
+					facebook = 2;
+					room = 1;
+				}
+			}
+			else {
+				cout << "The Zuck: You have failed me for the last time" << endl;
+				cout << "*The Zuck throws you out of his office like you weigh nothing" << endl;
+				room = 1;
+			}
+			break;
+		case 13: //Tesla Return Room 
+			cout << "Elon Musk: Are you here to give me my freaking money back?(y or n)" << endl;
+			cin >> input;
+			if (input == 'y') {
+				cout << "*The Elongated Muskrat is pleased" << endl;
+				money -= 10000000;
+				cout << money << endl;
+				cout << endl;
+				cout << "Elon Musk: Let me give you more money. (y or n)" << endl;
+				cin >> input;
+				if (input == 'y') {
+					money += 100000000;
+					cout << money << endl;
+					cout << "Elon Musk: Come back soon" << endl;
+					tesla = 2;
+					room = 1;
+				}
+				else {
+					cout << "How dare you!" << endl;
+					cout << "*Elon Musk never wants to see you again" << endl;
+					tesla = 2;
+					room = 1;
+				}
+			}
+			else {
+				cout << "Elon Musk: AAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH!" << endl;
+				room = 1;
+			}
+		case 14: //Escape Room
+			cout << "You now have enough money to live out an entire lifetime without worrying about going broke." << endl << endl;
+			cout << "How should you escape?" << endl << endl;
+			cout << "(a) Boat" << endl;
+			cout << "(b) Call your mom to pick you up" << endl;
+			cout << "(c) Plane" << endl;
+			cout << "(d) Use Instant Transmission to go to Planet Namek" << endl;
+			cin >> input;
+			if (input == 'a') {
+				cout << "You take a private ship out to sea hoping to make it to China." << endl;
+				cout << "However, Elon Musk came after you in the new Tesla cyberboat and schot you down." << endl;
+				room = 14;
+			}
+			else if (input == 'b') {
+				cout << "You successfully get away as no one can track you down in your mom's car" << endl;
+				cout << "As it turns out your Mom's basement is the perfect hideout because no one thought to look for you there." << endl;
+				room = 15;
+			}
+			else if (input == 'c') {
+				cout << "You get onto the plane but Mark Zuckerberg intercepts you with all of your money" << endl;
+				cout << "He eats your head off as a light snack" << endl;
+				room = 14;
+			}
+			else if (input == 'd') {
+				cout << "You try to use instant transmission but you're not Goku so you fail." << endl;
+				cout << "You die because you just stood in same place doing the instant transmission pose" << endl;
+				cout << "until eventually you die" << endl;
+				room = 14;
+			}
+			else {
+				cout << "Not an input" << endl;
+				room = 14;
+			}
+			break;
+		case 15: //Victory room
+			cout << "Congratulations on beating my game" << endl;
+			cout << "Thank you playing my game til the end" << endl;
+			cout << "-Tyr Yee" << endl;
+			return 0;
+		}
+	}
+}
